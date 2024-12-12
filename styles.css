@@ -1,74 +1,71 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #1e1e1e;
-    color: #fff;
-    text-align: center;
-}
+// Store the selected user
+let selectedUser = "";
 
-h1 {
-    font-size: 36px;
-    color: #00c8ff;
-}
+// When a user clicks on a name, they are logged in and taken to member selection
+const nameButtons = document.querySelectorAll('.name-button');
+const accountCreationDiv = document.getElementById('account-creation');
+const memberSelectionDiv = document.getElementById('member-selection');
+const memberList = document.querySelector('#member-selection ul'); // the member list in HTML
 
-button {
-    background-color: #00c8ff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+nameButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        selectedUser = e.target.textContent;
+        console.log(`User selected: ${selectedUser}`);
+        accountCreationDiv.style.display = 'none';
+        
+        // Generate the member list excluding the selected user
+        const members = ['Elyass', 'Diana', 'Leonardo', 'Filippide'];
+        const filteredMembers = members.filter(name => name !== selectedUser);
 
-button:hover {
-    background-color: #0097b7;
-}
+        // Clear the current member list and populate it with filtered members
+        memberList.innerHTML = '';
+        filteredMembers.forEach(member => {
+            const li = document.createElement('li');
+            li.classList.add('member');
+            li.textContent = member;
+            memberList.appendChild(li);
+        });
 
-#account-creation {
-    margin-top: 50px;
-}
+        memberSelectionDiv.style.display = 'block';
+    });
+});
 
-#member-selection ul {
-    list-style-type: none;
-    padding: 0;
-}
+// Handle member selection (moving to the rating page)
+const ratingPageDiv = document.getElementById('rating-page');
+const personalPageButton = document.getElementById('personal-page');
 
-#member-selection .member {
-    padding: 10px;
-    background-color: #333;
-    border-radius: 5px;
-    margin: 10px 0;
-    cursor: pointer;
-}
+memberList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('member')) {
+        console.log(`Selected member to rate: ${e.target.textContent}`);
+        memberSelectionDiv.style.display = 'none';
+        ratingPageDiv.style.display = 'block';
+    }
+});
 
-#member-selection .member:hover {
-    background-color: #444;
-}
+// Handle rating submission
+const submitRatingButton = document.getElementById('submit-rating');
 
-input {
-    width: 100px;
-    padding: 5px;
-    margin: 10px;
-    background-color: #333;
-    border: 1px solid #00c8ff;
-    border-radius: 5px;
-}
+submitRatingButton.addEventListener('click', () => {
+    const timeManagement = document.getElementById('time-management').value;
+    const softSkills = document.getElementById('soft-skills').value;
+    const ethics = document.getElementById('ethics').value;
+    const teamwork = document.getElementById('teamwork').value;
+    const comment = document.getElementById('comment').value;
 
-input:focus {
-    outline: none;
-    background-color: #444;
-}
+    console.log(`Rating for ${selectedUser}:`);
+    console.log(`Time Management: ${timeManagement}, Soft Skills: ${softSkills}, Ethics: ${ethics}, Teamwork: ${teamwork}`);
+    console.log(`Comment: ${comment}`);
 
-#submit-rating {
-    margin-top: 20px;
-}
+    // Here you can add code to save this rating and comment in a database or display it
+    alert('Rating submitted successfully!');
 
-#personal-page {
-    margin-top: 20px;
-    background-color: #44c744;
-}
+    // After submitting, go back to the member selection page
+    ratingPageDiv.style.display = 'none';
+    memberSelectionDiv.style.display = 'block';
+});
 
-#personal-page:hover {
-    background-color: #399e39;
-}
+// Handle personal page button
+personalPageButton.addEventListener('click', () => {
+    console.log(`Viewing personal page for ${selectedUser}`);
+    // Display user ratings and average (You can implement this further)
+});

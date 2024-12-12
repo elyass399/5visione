@@ -3,61 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rating System</title>
+    <title>Choose Your Name</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Account Creation -->
-<div id="account-creation">
     <h1>Choose Your Name</h1>
-    <button class="user-choice" onclick="createAccount('Elyass')">Elyass</button>
-    <button class="user-choice" onclick="createAccount('Diana')">Diana</button>
-    <button class="user-choice" onclick="createAccount('Leonardo')">Leonardo</button>
-    <button class="user-choice" onclick="createAccount('Filippide')">Filippide</button>
-</div>
-
-<!-- Member Selection (Only after Account Creation) -->
-<div id="member-selection" style="display: none;">
-    <h1>Select a Member to Rate</h1>
-    <ul>
-        <li onclick="startRating('Elyass')">Elyass</li>
-        <li onclick="startRating('Diana')">Diana</li>
-        <li onclick="startRating('Leonardo')">Leonardo</li>
-    </ul>
-</div>
-
-<!-- Rating Form (Visible when selecting a member) -->
-<div id="rating-page" style="display: none;">
-    <h1>Rate the Member</h1>
-    <label for="time-management">Time Management:</label>
-    <input type="number" id="time-management" max="10" min="1" placeholder="Rate out of 10">
-    <label for="soft-skills">Soft Skills:</label>
-    <input type="number" id="soft-skills" max="10" min="1" placeholder="Rate out of 10">
-    <label for="ethics">Ethics:</label>
-    <input type="number" id="ethics" max="10" min="1" placeholder="Rate out of 10">
-    <label for="teamwork">Teamwork:</label>
-    <input type="number" id="teamwork" max="10" min="1" placeholder="Rate out of 10">
-    
-    <textarea id="comment" placeholder="Leave an anonymous comment..."></textarea>
-    
-    <button onclick="submitRating()">Submit Rating</button>
-</div>
-
-<!-- Personal Page (User's Own Profile) -->
-<div id="personal-page" style="display: none;">
-    <h1>Your Personal Page</h1>
-    <p><strong>Your Average Rating:</strong></p>
-    <p id="average-rating">Loading...</p>
-    
-    <h3>Your Anonymous Comments:</h3>
-    <ul id="comments-list">
-        <li>No comments yet.</li>
-    </ul>
-    
-    <button onclick="goBack()">Go Back</button>
-</div>
-
-<script src="script.js"></script>
+    <div class="name-selection">
+        <button onclick="chooseName('Elyass')">Elyass</button>
+        <button onclick="chooseName('Diana')">Diana</button>
+        <button onclick="chooseName('Leonardo')">Leonardo</button>
+        <button onclick="chooseName('Filippide')">Filippide</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

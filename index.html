@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anonymous Evaluation Room</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Stanza di valutazione anonima</h1>
-  <p>Crea o unisciti a una stanza per valutare i membri del team in modo anonimo.</p>
+<div id="account-creation">
+  <h2>Choose Your Name</h2>
+  <button onclick="chooseName('Elyass')">Elyass</button>
+  <button onclick="chooseName('Diana')">Diana</button>
+  <button onclick="chooseName('Leonardo')">Leonardo</button>
+  <button onclick="chooseName('Filippide')">Filippide</button>
+</div>
 
-  <!-- Embedded Google Form -->
-  <div class="google-form">
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLScd4Dgdy7cWaXN7DUvlpfoU7Z5rOczmsThBPpbZ0zON6zEJKw/viewform"
-      width="640"
-      height="800"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0">
-      Loading…
-    </iframe>
-  </div>
-</body>
-</html>
+<div id="member-selection" style="display:none;">
+  <h2>Choose a Member to Rate</h2>
+  <ul>
+    <li onclick="chooseMember('Elyass')">Elyass</li>
+    <li onclick="chooseMember('Diana')">Diana</li>
+    <li onclick="chooseMember('Leonardo')">Leonardo</li>
+    <li onclick="chooseMember('Filippide')">Filippide</li>
+  </ul>
+</div>
+
+<div id="rating-page" style="display:none;">
+  <h2>Rate Member</h2>
+  <p>Time Management: <input type="number" id="time-management" max="10" min="1"></p>
+  <p>Soft Skills: <input type="number" id="soft-skills" max="10" min="1"></p>
+  <p>Ethics: <input type="number" id="ethics" max="10" min="1"></p>
+  <p>Teamwork: <input type="number" id="teamwork" max="10" min="1"></p>
+  <button onclick="submitRating()">Submit Rating</button>
+</div>
+

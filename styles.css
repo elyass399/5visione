@@ -1,56 +1,138 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-}
-
-h1 {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     color: #333;
 }
 
-button, #submit-rating {
-    padding: 10px 20px;
-    margin: 10px;
+h1 {
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
 }
 
-button:hover, #submit-rating:hover {
+button:hover {
     background-color: #45a049;
+    transform: translateY(-2px);
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+button:active {
+    transform: translateY(2px);
+}
+
+/* Container */
+#account-creation, #member-selection, #rating-page, #personal-page {
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-li {
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 5px 0;
-    cursor: pointer;
-}
-
-li:hover {
-    background-color: #f1f1f1;
-}
-
-#rating-form {
+#account-creation {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-textarea {
-    width: 300px;
-    height: 100px;
-    margin: 10px 0;
+#member-selection ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#member-selection li {
+    background-color: #e3f2f1;
+    border: 1px solid #81c784;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#member-selection li:hover {
+    background-color: #81c784;
+    color: white;
+}
+
+/* Rating Form */
+#rating-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+#rating-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+#rating-form input, #rating-form textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #81c784;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+#rating-form input:focus, #rating-form textarea:focus {
+    border-color: #4CAF50;
+}
+
+#rating-form textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* Personal Page */
+#personal-page {
+    font-size: 16px;
+    color: #333;
+}
+
+#personal-page p {
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#account-creation, #member-selection, #rating-page, #personal-page {
+    animation: fadeIn 1s ease-in-out;
 }

@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Rating System</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <title>Member Rating</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="account-creation">
-        <h1>Welcome to the AI Rating System</h1>
+        <h1>Choose your name</h1>
         <button class="name-button">Elyass</button>
         <button class="name-button">Diana</button>
         <button class="name-button">Leonardo</button>
         <button class="name-button">Filippide</button>
     </div>
 
-    <div id="member-selection" style="display:none;">
-        <h2>Select a Member to Rate</h2>
-        <ul>
-            <li class="member">Member 1</li>
-            <li class="member">Member 2</li>
-            <li class="member">Member 3</li>
-            <li class="member">Member 4</li>
-        </ul>
+    <div id="member-selection" style="display: none;">
+        <h1>Select a member to rate</h1>
+        <ul></ul>
     </div>
 
-    <div id="rating-page" style="display:none;">
-        <h2>Rate the Member</h2>
-        <label for="time-management">Time Management</label>
-        <input type="number" id="time-management" min="1" max="10">
-
-        <label for="soft-skills">Soft Skills</label>
-        <input type="number" id="soft-skills" min="1" max="10">
-
-        <label for="ethics">Ethics</label>
-        <input type="number" id="ethics" min="1" max="10">
-
-        <label for="teamwork">Teamwork</label>
-        <input type="number" id="teamwork" min="1" max="10">
-
-        <button id="submit-rating">Submit Rating</button>
+    <div id="rating-page" style="display: none;">
+        <h1>Rate the selected member</h1>
+        <form id="rating-form">
+            <label for="time-management">Time Management (1-10):</label>
+            <input type="number" id="time-management" min="1" max="10" required><br>
+            <label for="soft-skills">Soft Skills (1-10):</label>
+            <input type="number" id="soft-skills" min="1" max="10" required><br>
+            <label for="ethics">Ethics (1-10):</label>
+            <input type="number" id="ethics" min="1" max="10" required><br>
+            <label for="teamwork">Teamwork (1-10):</label>
+            <input type="number" id="teamwork" min="1" max="10" required><br>
+            <label for="comment">Comment:</label><br>
+            <textarea id="comment" rows="4" cols="50"></textarea><br>
+            <button type="button" id="submit-rating">Submit Rating</button>
+        </form>
     </div>
 
-    <button id="personal-page" style="display:none;">Go to Personal Page</button>
+    <div id="personal-page" style="display: none;">
+        <h1>Your Personal Page</h1>
+        <p>View your rating averages here.</p>
+    </div>
 
-    <script src="script.js"></script> <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

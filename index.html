@@ -1,27 +1,49 @@
-<div id="account-creation">
-  <h2>Choose Your Name</h2>
-  <button onclick="chooseName('Elyass')">Elyass</button>
-  <button onclick="chooseName('Diana')">Diana</button>
-  <button onclick="chooseName('Leonardo')">Leonardo</button>
-  <button onclick="chooseName('Filippide')">Filippide</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Rating System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <div id="account-creation">
+        <h1>Welcome to the AI Rating System</h1>
+        <button class="name-button">Elyass</button>
+        <button class="name-button">Diana</button>
+        <button class="name-button">Leonardo</button>
+        <button class="name-button">Filippide</button>
+    </div>
 
-<div id="member-selection" style="display:none;">
-  <h2>Choose a Member to Rate</h2>
-  <ul>
-    <li onclick="chooseMember('Elyass')">Elyass</li>
-    <li onclick="chooseMember('Diana')">Diana</li>
-    <li onclick="chooseMember('Leonardo')">Leonardo</li>
-    <li onclick="chooseMember('Filippide')">Filippide</li>
-  </ul>
-</div>
+    <div id="member-selection" style="display:none;">
+        <h2>Select a Member to Rate</h2>
+        <ul>
+            <li class="member">Member 1</li>
+            <li class="member">Member 2</li>
+            <li class="member">Member 3</li>
+            <li class="member">Member 4</li>
+        </ul>
+    </div>
 
-<div id="rating-page" style="display:none;">
-  <h2>Rate Member</h2>
-  <p>Time Management: <input type="number" id="time-management" max="10" min="1"></p>
-  <p>Soft Skills: <input type="number" id="soft-skills" max="10" min="1"></p>
-  <p>Ethics: <input type="number" id="ethics" max="10" min="1"></p>
-  <p>Teamwork: <input type="number" id="teamwork" max="10" min="1"></p>
-  <button onclick="submitRating()">Submit Rating</button>
-</div>
+    <div id="rating-page" style="display:none;">
+        <h2>Rate the Member</h2>
+        <label for="time-management">Time Management</label>
+        <input type="number" id="time-management" min="1" max="10">
 
+        <label for="soft-skills">Soft Skills</label>
+        <input type="number" id="soft-skills" min="1" max="10">
+
+        <label for="ethics">Ethics</label>
+        <input type="number" id="ethics" min="1" max="10">
+
+        <label for="teamwork">Teamwork</label>
+        <input type="number" id="teamwork" min="1" max="10">
+
+        <button id="submit-rating">Submit Rating</button>
+    </div>
+
+    <button id="personal-page" style="display:none;">Go to Personal Page</button>
+
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+</body>
+</html>

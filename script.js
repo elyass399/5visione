@@ -5,27 +5,41 @@ let selectedUser = "";
 const nameButtons = document.querySelectorAll('.name-button');
 const accountCreationDiv = document.getElementById('account-creation');
 const memberSelectionDiv = document.getElementById('member-selection');
+const memberList = document.querySelector('#member-selection ul'); // the member list in HTML
 
 nameButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         selectedUser = e.target.textContent;
         console.log(`User selected: ${selectedUser}`);
         accountCreationDiv.style.display = 'none';
+        
+        // Generate the member list excluding the selected user
+        const members = ['Elyass', 'Diana', 'Leonardo', 'Filippide'];
+        const filteredMembers = members.filter(name => name !== selectedUser);
+
+        // Clear the current member list and populate it with filtered members
+        memberList.innerHTML = '';
+        filteredMembers.forEach(member => {
+            const li = document.createElement('li');
+            li.classList.add('member');
+            li.textContent = member;
+            memberList.appendChild(li);
+        });
+
         memberSelectionDiv.style.display = 'block';
     });
 });
 
 // Handle member selection
-const memberList = document.querySelectorAll('.member');
 const ratingPageDiv = document.getElementById('rating-page');
 const personalPageButton = document.getElementById('personal-page');
 
-memberList.forEach(member => {
-    member.addEventListener('click', (e) => {
+memberList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('member')) {
         console.log(`Selected member to rate: ${e.target.textContent}`);
         memberSelectionDiv.style.display = 'none';
         ratingPageDiv.style.display = 'block';
-    });
+    }
 });
 
 // Handle rating submission

@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: #fff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #00c8ff;
+}
+
+button {
+    background-color: #00c8ff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0097b7;
+}
+
+#account-creation {
+    margin-top: 50px;
+}
+
+#member-selection ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#member-selection .member {
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#member-selection .member:hover {
+    background-color: #444;
+}
+
+input {
+    width: 100px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #333;
+    border: 1px solid #00c8ff;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+    background-color: #444;
+}
+
+#submit-rating {
+    margin-top: 20px;
+}
+
+#personal-page {
+    margin-top: 20px;
+    background-color: #44c744;
+}
+
+#personal-page:hover {
+    background-color: #399e39;
+}

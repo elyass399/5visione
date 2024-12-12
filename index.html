@@ -3,45 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Rating</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Rating System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="account-creation">
-        <h1>Choose your name</h1>
-        <button class="name-button">Elyass</button>
-        <button class="name-button">Diana</button>
-        <button class="name-button">Leonardo</button>
-        <button class="name-button">Filippide</button>
-    </div>
 
-    <div id="member-selection" style="display: none;">
-        <h1>Select a member to rate</h1>
-        <ul></ul>
-    </div>
+<!-- Account Creation -->
+<div id="account-creation">
+    <h1>Choose Your Name</h1>
+    <button class="user-choice" onclick="createAccount('Elyass')">Elyass</button>
+    <button class="user-choice" onclick="createAccount('Diana')">Diana</button>
+    <button class="user-choice" onclick="createAccount('Leonardo')">Leonardo</button>
+    <button class="user-choice" onclick="createAccount('Filippide')">Filippide</button>
+</div>
 
-    <div id="rating-page" style="display: none;">
-        <h1>Rate the selected member</h1>
-        <form id="rating-form">
-            <label for="time-management">Time Management (1-10):</label>
-            <input type="number" id="time-management" min="1" max="10" required><br>
-            <label for="soft-skills">Soft Skills (1-10):</label>
-            <input type="number" id="soft-skills" min="1" max="10" required><br>
-            <label for="ethics">Ethics (1-10):</label>
-            <input type="number" id="ethics" min="1" max="10" required><br>
-            <label for="teamwork">Teamwork (1-10):</label>
-            <input type="number" id="teamwork" min="1" max="10" required><br>
-            <label for="comment">Comment:</label><br>
-            <textarea id="comment" rows="4" cols="50"></textarea><br>
-            <button type="button" id="submit-rating">Submit Rating</button>
-        </form>
-    </div>
+<!-- Member Selection (Only after Account Creation) -->
+<div id="member-selection" style="display: none;">
+    <h1>Select a Member to Rate</h1>
+    <ul>
+        <li onclick="startRating('Elyass')">Elyass</li>
+        <li onclick="startRating('Diana')">Diana</li>
+        <li onclick="startRating('Leonardo')">Leonardo</li>
+    </ul>
+</div>
 
-    <div id="personal-page" style="display: none;">
-        <h1>Your Personal Page</h1>
-        <p>View your rating averages here.</p>
-    </div>
+<!-- Rating Form (Visible when selecting a member) -->
+<div id="rating-page" style="display: none;">
+    <h1>Rate the Member</h1>
+    <label for="time-management">Time Management:</label>
+    <input type="number" id="time-management" max="10" min="1" placeholder="Rate out of 10">
+    <label for="soft-skills">Soft Skills:</label>
+    <input type="number" id="soft-skills" max="10" min="1" placeholder="Rate out of 10">
+    <label for="ethics">Ethics:</label>
+    <input type="number" id="ethics" max="10" min="1" placeholder="Rate out of 10">
+    <label for="teamwork">Teamwork:</label>
+    <input type="number" id="teamwork" max="10" min="1" placeholder="Rate out of 10">
+    
+    <textarea id="comment" placeholder="Leave an anonymous comment..."></textarea>
+    
+    <button onclick="submitRating()">Submit Rating</button>
+</div>
 
-    <script src="script.js"></script>
+<!-- Personal Page (User's Own Profile) -->
+<div id="personal-page" style="display: none;">
+    <h1>Your Personal Page</h1>
+    <p><strong>Your Average Rating:</strong></p>
+    <p id="average-rating">Loading...</p>
+    
+    <h3>Your Anonymous Comments:</h3>
+    <ul id="comments-list">
+        <li>No comments yet.</li>
+    </ul>
+    
+    <button onclick="goBack()">Go Back</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
